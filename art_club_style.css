@@ -1,0 +1,342 @@
+/* art_club_style.css */
+:root {
+    --primary-color: #f7b267; /* Vibrant orange-yellow */
+    --secondary-color: #a2d5c6; /* Soft teal */
+    --accent-color: #d8a7b1; /* Dusty rose */
+    --text-color-light: #333;
+    --text-color-dark: #fff;
+    --bg-light: #f4f4f4;
+    --bg-dark: #222;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-primary: 'Arial', sans-serif;
+    --font-secondary: 'Georgia', serif;
+    --animation-duration: 0.3s;
+    --animation-easing: ease-in-out;
+}
+
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-color-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    background-color: var(--bg-dark);
+    color: var(--text-color-dark);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    transition: color var(--animation-duration) var(--animation-easing);
+}
+
+.logo:hover {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+    font-weight: bold;
+    transition: color var(--animation-duration) var(--animation-easing);
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Showcase Section Styles */
+.showcase {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    background: url('images/2.png') center/cover no-repeat; /* Assuming you've renamed your hero image */
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color-dark);
+    padding: 3rem;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInOverlay var(--animation-duration) 0.5s forwards var(--animation-easing);
+}
+
+@keyframes slideInOverlay {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--bg-light);
+}
+
+.art-piece {
+    background-color: var(--secondary-color);
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px var(--shadow-color);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInArt var(--animation-duration) forwards var(--animation-easing);
+}
+
+.gallery .art-piece:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery .art-piece:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.gallery .art-piece:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.gallery .art-piece:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.gallery .art-piece:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.gallery .art-piece:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeInArt {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Workshops Section Styles */
+.workshops {
+    padding: 4rem 20px;
+    background-color: var(--bg-dark);
+    color: var(--text-color-dark);
+    text-align: center;
+}
+
+.workshops h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+}
+
+.workshop-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.workshop-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    transition: transform var(--animation-duration) var(--animation-easing),
+                box-shadow var(--animation-duration) var(--animation-easing);
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.workshop-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.workshop-card p {
+    color: #eee;
+    margin-bottom: 1.5rem;
+}
+
+.btn-secondary {
+    transition: background-color var(--animation-duration) var(--animation-easing),
+                transform var(--animation-duration) var(--animation-easing);
+}
+
+.btn-secondary:hover {
+    background-color: #91c2b4;
+    transform: scale(1.05);
+}
+
+/* Join Us Section Styles */
+.join {
+    padding: 4rem 20px;
+    background-color: var(--bg-light);
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.join h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+}
+
+.join-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.join-form input[type="text"],
+.join-form input[type="email"],
+.join-form textarea,
+.btn-primary {
+    transition: border-color var(--animation-duration) var(--animation-easing),
+                box-shadow var(--animation-duration) var(--animation-easing),
+                background-color var(--animation-duration) var(--animation-easing),
+                transform var(--animation-duration) var(--animation-easing);
+}
+
+.join-form input:focus,
+.join-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5); /* Need to define --primary-color-rgb if using this */
+    outline: none;
+}
+
+.btn-primary:hover {
+    background-color: #e0a35e;
+    transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Confirmation Message */
+.confirmation-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    border-radius: 6px;
+    display: none; /* Still hidden as we removed JS */
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-color-dark);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero-image {
+        height: 400px;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .workshop-list {
+        grid-template-columns: 1fr;
+    }
+}
